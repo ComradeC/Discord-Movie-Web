@@ -35,5 +35,5 @@ jobs:
           script: |
             cd bot
             docker compose down
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/discord-movie-web-latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/discord-movie-web:latest
             docker compose up -d
