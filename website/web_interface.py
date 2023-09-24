@@ -234,4 +234,4 @@ if __name__ == '__main__':
         arg_host, arg_port = sys.argv[1].split(':')
         app.run(host=arg_host, port=arg_port)
     else:
-        app.run(host="0.0.0.0", port=5000)
+        app.run(host="127.0.0.1", port=5000)
