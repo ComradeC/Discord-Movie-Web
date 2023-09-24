@@ -9,8 +9,8 @@
     <table id="movieTable" xmlns="http://www.w3.org/1999/html">
         <caption><h2>Our glorious MovieDB, long may it reign</h2></caption>
         <thead>
-            <tr>Show watched:<input type="checkbox" id="watchedFilter" onclick="filter()" checked></tr>
-            <tr>Show not watched:<input type="checkbox" id="notWatchedFilter" onclick="filter()" checked></tr>
+                <tr>Show watched:<input type="checkbox" id="watchedFilter" onclick="filter()" checked></tr>
+                <tr>Show not watched:<input type="checkbox" id="notWatchedFilter" onclick="filter()" checked></tr>
             <tr>
                 <th></th>
                 <th>Poster</th>
@@ -34,7 +34,13 @@
                     {% endif %}
                 </td>
                 <td scope="row"><b>{{ movie.title }}</b></td>
-                <td scope="row" id="watchedStatus">{{ movie.watched_status }}</td>
+                <td scope="row" id="watchedStatus">
+                    {% if movie.watched_status %}
+                        <img class="watched" src="{{ url_for('static', filename='img/green_circle64p.png') }}" alt="true" width="32" height="32">
+                    {% else %}
+                        <img class="not-watched" src="{{ url_for('static', filename='img/red_cross64p.png') }}" alt="false" width="32" height="32">
+                    {% endif %}
+                </td>
                 <td>
                     {% if movie.kp_id %}
                         <a href='https://www.kinopoisk.ru/film/{{ movie.kp_id }}/'><img src='https://rating.kinopoisk.ru/{{ movie.kp_id}}.gif' border='0'></a>
